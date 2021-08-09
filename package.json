@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "broccoli-plugin": "^4.0.7",
+    "fs-tree-diff": "^2.0.1"
+  },
+  "devDependencies": {
+    "broccoli-test-helper": "^2.0.0",
+    "expect": "^27.0.6",
+    "jest": "^27.0.6"
+  },
+  "engines": {
+    "node": "10.* || 12.* || 14.* || >= 16.*"
+  },
+  "scripts": {
+    "test": "jest test.js",
+    "test:inspect": " node inspect ./node_modules/.bin/jest --runInBand test.js"
+  },
+  "volta": {
+    "node": "10.24.1",
+    "yarn": "1.22.11"
+  }
+}
