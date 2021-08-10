@@ -1,4 +1,5 @@
 {
+  "name": "broccoli-babel-preset-typescript",
   "dependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-typescript": "^7.15.0",
@@ -20,5 +21,6 @@
   "volta": {
     "node": "10.24.1",
     "yarn": "1.22.11"
-  }
+  },
+  "version": "1.0.0"
 }
