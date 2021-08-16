@@ -19,9 +19,10 @@ module.exports.BroccoliBabelPresetTypeScript = class BroccoliBabelPresetTypeScri
 
     if (this._previous === null) {
       // the previous build attempt failed, resulting in this._previous not being set.
-      // This means we have to assume something exceptional happened, and the
+        // This means we have to assume something exceptional happened, and the
       // best course of action is to assume our output is corrupted and to start again;
       this.output.rmdirSync('.', { recursive: true });
+      this.output.mkdirSync('.');
 
       current = new FSTree();
     } else {
@@ -84,8 +85,7 @@ module.exports.BroccoliBabelPresetTypeScript = class BroccoliBabelPresetTypeScri
           throw new Error(`[BroccoliBabelPresetTypeScript] unknown operation: '${operation}'`);
         }
       }
-
-      this._previous = next;
     }
+    this._previous = next;
   }
 }

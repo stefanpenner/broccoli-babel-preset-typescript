@@ -272,7 +272,7 @@ describe('broccoli-babel-preset-typescript', function() {
     input.write({'a.ts': null });
     input.write({'a': { 'b.ts': null } });
 
-    await output.build();
+    await output.build(); 
 
     expect(output.changes()).toStrictEqual({
       'a.js': 'unlink',
@@ -296,6 +296,24 @@ describe('broccoli-babel-preset-typescript', function() {
       'a.js': 'create',
       'a/b.js': 'create',
     });
+    expect(output.read()).toStrictEqual({
+      'a.js': `export const a = ['one'];`,
+      'a': {
+        'b.js': `export const b = ['object'];`,
+      },
+      'README.md': `## HELLO WORLD`
+    });
+
+    await output.build(); // let's just make sure we can rebuild a few times with no changes
+    expect(output.read()).toStrictEqual({
+      'a.js': `export const a = ['one'];`,
+      'a': {
+        'b.js': `export const b = ['object'];`,
+      },
+      'README.md': `## HELLO WORLD`
+    });
+
+    await output.build(); // let's just make sure we can rebuild a few times with no changes
 
     expect(output.read()).toStrictEqual({
       'a.js': `export const a = ['one'];`,
